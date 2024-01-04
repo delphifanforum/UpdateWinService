@@ -46,7 +46,13 @@ Follow these steps to install the UpdateService Delphi project:
 - Start the service: `UpdateService.exe start`
 - Stop the service: `UpdateService.exe stop`
 - Check for updates manually: `UpdateService.exe check`
-  
+```delphi
+ procedure TForm1.FormCreate(Sender: TObject);
+begin
+  UpdateService := TUpdateService.Create(Self);
+  UpdateService.SetConfig('C:\Path\To\Your\App\', 'http://www.example.com/update/check');
+end;
+```  
 ## Configuration
 Configure the UpdateService by editing the configuration file (update-service.ini). Adjust the AppPath and UpdateURL parameters according to your MyApp setup. 
 # Configuration File (update-service.ini)
